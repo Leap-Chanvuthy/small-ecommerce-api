@@ -43,6 +43,17 @@ class ProductController extends Controller
         }
     }
 
+
+    // what to do :
+    // pull latest code from github
+    // run : composer install | if not work run : composer update
+    // run : php artisan migrate:fresh
+    // run : php artisan db:seed
+    // run : php artisan serve
+    // test product query : 127.0.0.1/api/prouct?filter[search]=your_product_name
+
+
+
     public function createProduct(Request $request)
     {
 
