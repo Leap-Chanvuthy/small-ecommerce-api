@@ -33,7 +33,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->get('password')),
             'phone'=>$request->get('phone'),
             'address'=>$request->get('address'),
-            'role' => UserRoleEnum::CUSTOMER -> value,
+            'role' => UserRoleEnum::ADMIN -> value,
         ]);
         $token = JWTAuth::fromUser($user);
         return response()->json(["user"=>$user , "token"=>$token], 201);
@@ -72,19 +72,9 @@ class AuthController extends Controller
         
 
     }
-    public function getUser()
-    {
-        try {
-            if (! $user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['error' => 'User not found'], 404);
-            }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'Invalid token'], 400);
-        }
 
-        return response()->json(compact('user'));
-    }
-    
+   
+
     public function logout()
     {
         JWTAuth::invalidate(JWTAuth::getToken());
