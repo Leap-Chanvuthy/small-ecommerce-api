@@ -48,7 +48,7 @@ Route::put('/update/{id}' , [UserController::class , 'update'])-> middleware('ro
 
 //Product
 
-Route::get('/product' , [ProductController::class , 'index'])->middleware('role:ADMIN')  ;
+Route::get('/products' , [ProductController::class , 'index'])->middleware('role:ADMIN')  ;
 Route::post('/create-product',  [ProductController::class , 'createProduct'])->middleware('role:ADMIN')   ; 
 Route::patch('/update-product/{id}',  [ProductController::class , 'updateProduct'])->middleware('role:ADMIN')   ; 
 Route::delete('/delete/{id}',  [ProductController::class , 'destroy'])->middleware('role:ADMIN')   ; 
